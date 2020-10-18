@@ -2,7 +2,7 @@
 <div class="container">
     <!-- Branding Image -->
     <a class="navbar-brand " href="{{ url('/') }}">
-    LaraBBS
+    文件管理
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,19 +27,11 @@
             {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url(config('administrator.uri')) }}">
-                  <i class="fas fa-tachometer-alt mr-2"></i>
-                  管理后台
-                </a>
-                <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="far fa-user mr-2"></i>
-                个人中心
-              </a>
-            <a class="dropdown-item" href="">编辑资料</a>
+ 
+              
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" id="logout" href="#">
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="GET">
                 {{ csrf_field() }}
                 <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
                 </form>

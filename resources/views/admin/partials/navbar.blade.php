@@ -2,7 +2,7 @@
     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
     @auth
         <li @if (Request::is('admin/upload*')) class="nav-item active" @else class="nav-item" @endif>
-            <a class="nav-link" href="/admin/upload">上传</a>
+            <!-- <a class="nav-link" href="/admin/upload">上传</a> -->
         </li>
     @endauth
 </ul>

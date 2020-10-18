@@ -6,13 +6,13 @@
         {{-- 顶部工具栏 --}}
         <div class="row page-title-row">
             <div class="col-md-6">
-                <h3 class="pull-left">上传 </h3>
+                <!-- <h3 class="pull-left">上传 </h3> -->
                 <div class="pull-left">
                     <ul class="breadcrumb">
                         @foreach ($breadcrumbs as $path => $disp)
                             <li><a href="/admin/upload?folder={{ $path }}">{{ $disp }}</a></li>
                         @endforeach
-                        <li class="active">{{ $folderName }}</li>
+                        <li class="active"> {{ $folderName }}</li>
                     </ul>
                 </div>
             </div>
