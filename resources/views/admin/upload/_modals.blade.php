@@ -171,3 +171,40 @@
         </div>
     </div>
 </div>
+
+
+{{-- 分享文件 --}}
+<div class="modal fade" id="modal-file-share">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">请确认</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    ×
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">
+                    <i class="fa fa-question-circle fa-lg"></i>
+                    确定要分享
+                    <kbd><span id="share-file-name1">file</span></kbd>
+                    这个文件吗？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <form method="POST" action="/admin/share/file">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_method" value="POST">
+                    <input type="hidden" name="folder" value="{{ $folder }}">
+                    <input type="hidden" name="share_file" id="share-file-name2">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="submit" class="btn btn-danger">
+                        分享文件
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,8 @@ namespace App\Services;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Dflydev\ApacheMimeTypes\PhpRepository;
+use Illuminate\Support\Facades\Crypt;
+
 
 class UploadsManager
 {
@@ -113,6 +115,14 @@ class UploadsManager
         return url($path);
     }
 
+    /**返回加密路径 */
+
+    public function file_web_path($path)
+    {
+        $path = rtrim(config('fileapp.uploads.webpath'), '/') . '/' . Crypt::encrypt(ltrim($path, '/'));
+        return url($path);
+    }
+
     /**
      * 返回文件MIME类型
      */
@@ -201,4 +211,7 @@ class UploadsManager
 
         return $this->disk->put($path, $content);
     }
+
+
+    // public function shareFile(){}
 }

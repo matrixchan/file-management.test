@@ -23,6 +23,7 @@
                 <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#modal-file-upload">
                     <i class="fa fa-upload"></i> 上传
                 </button>
+                
             </div>
         </div>
 
@@ -86,6 +87,11 @@
                                     <i class="fa fa-times-circle fa-lg"></i>
                                     删除
                                 </button>
+                                
+                                <button type="button" class="btn btn-xs btn-info" onclick="share_file('{{ $file['name'] }}')">
+                                    <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                    分享
+                                </button>
                                 @if (is_image($file['mimeType']))
                                     <button type="button" class="btn btn-xs btn-success" onclick="preview_image('{{ $file['webPath'] }}')">
                                         <i class="fa fa-eye fa-lg"></i>
@@ -115,6 +121,15 @@
             $("#delete-file-name1").html(name);
             $("#delete-file-name2").val(name);
             $("#modal-file-delete").modal("show");
+        }
+        //分享文件
+        function share_file(name) {
+            $("#share-file-name1").html(name);
+            $("#share-file-name2").val(name);
+            $("#modal-file-share").modal("show");
+                
+
+            
         }
 
         // 确认目录删除
