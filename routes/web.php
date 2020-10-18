@@ -23,3 +23,15 @@ Route::get('/', 'PagesController@root')->name('root');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function () {
+    return redirect('/admin/upload');
+    
+});
+Route::middleware('auth')->namespace('Admin')->group(function () {
+    Route::get('admin/upload', 'UploadController@index');
+    Route::post('admin/upload/file', 'UploadController@uploadFile');
+    Route::delete('admin/upload/file', 'UploadController@deleteFile');
+    Route::post('admin/upload/folder', 'UploadController@createFolder');
+    Route::delete('admin/upload/folder', 'UploadController@deleteFolder');
+});

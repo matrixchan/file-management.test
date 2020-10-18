@@ -7,7 +7,7 @@ return array(
      *
      * @type string
      */
-    'uri' => 'admin',
+    'uri' => 'admin2',
 
     /*
      *  Domain for routing.
@@ -21,7 +21,7 @@ return array(
      *
      * @type string
      */
-    'title' => config('app.name'),
+    'title' => env('APP_NAME', 'Laravel'),
 
     /*
      * The path to your model config directory
