@@ -28,7 +28,6 @@ class UploadController extends Controller
     {
         $folder = $request->get('folder');
         $data = $this->manager->folderInfo($folder);
-
         return view('admin.upload.index', $data);
     }
 

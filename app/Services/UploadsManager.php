@@ -19,6 +19,13 @@ class UploadsManager
         $this->mimeDetect = $mimeDetect;
     }
 
+    /***
+     *  由于php 自带的 basename 带有bug,可能不能获取到中文，所以重写
+     */
+    private function get_basename($filename){    
+        return preg_replace('/^.+[\\\\\\/]/', '', $filename);    
+    }
+
     /**
      * Return files and directories within a folder
      *
@@ -42,7 +49,7 @@ class UploadsManager
 
         $subfolders = [];
         foreach (array_unique($this->disk->directories($folder)) as $subfolder) {
-            $subfolders["/$subfolder"] = basename($subfolder);
+            $subfolders["/$subfolder"] = $this->get_basename($subfolder);
         }
 
         $files = [];
